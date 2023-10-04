@@ -62,6 +62,16 @@ toRomanLazy(944); // 'DCCCCXXXXIIII'
 
 ## Step 2: Modern Roman Numerals
 
+Step 1: Write a function called toRoman which takes a parameter of an arabic number
+
+Step 2: Create a variable output and assign it an empty string
+
+Step 3: Create a romanNumeralToArabic variable and assign it to an object that links each key (roman numeral) with its arabic value
+
+Step 4: Create a romanNumeralPriorityOrder variable and assign it to a list of the roman numerals in descending order
+
+Step 5: Loop through each item in the romanNumeralPriorityOrder, check if the num minus the current value is equal to the next roman numeral in the list: if it is, add both the current and the next numeral and subtract both from num, if not, repeat code form earlier
+
 Modify the code in Step 1 to do real roman numeral. Real roman numerals also includes special characters to represent 4, 9, 40, 400, 900 etc:
 
 ```

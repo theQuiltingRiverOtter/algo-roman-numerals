@@ -28,19 +28,15 @@ function toRoman(num) {
     } 
     else {
       let val = Math.floor(num/romanNumeralToArabic[numeral]);
-    for (let i = 0; i < val; i++){
-      output += numeral;
+      for (let i = 0; i < val; i++){
+        output += numeral;
+      }
+      num -= val * romanNumeralToArabic[numeral];
     }
-    num -= val * romanNumeralToArabic[numeral];
-
-
-  }
-
-
- 
-})
-return output;
+  })
+  return output;
 }
+
 // console.log(toRoman(4)); // IV
 // console.log(toRoman(150)); //CL
 // console.log(toRoman(944)); // 'CMXLIV'
