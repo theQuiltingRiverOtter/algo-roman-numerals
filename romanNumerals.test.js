@@ -14,13 +14,13 @@ describe("Tests toRomanLazy for small numbers", () => {
 
 describe("Tests toRomanLazy for large numbers", () => {
     test("tests toRomanLazy(356) = CCCLVI", () => {
-        expect(toRomanLazy(4)).toBe('CCCLVI');
+        expect(toRomanLazy(356)).toBe('CCCLVI');
     })
-    test("tests toRomanLazy(1984) = MDCCCCLXXXIII", () => {
-        expect(toRoman(15)).toBe('MDCCCCLXXXIII');
+    test("tests toRomanLazy(1984) = MDCCCCLXXXIIII", () => {
+        expect(toRomanLazy(1984)).toBe('MDCCCCLXXXIIII');
     })
-    test("tests toRomanLazy(4521) = MMMMDXXII", () => {
-        expect(toRoman(4521)).toBe("MMMMDXXII");
+    test("tests toRomanLazy(4521) = MMMMDXXI", () => {
+        expect(toRomanLazy(4521)).toBe("MMMMDXXI");
     })
 })
 
@@ -32,7 +32,7 @@ describe("Tests toRoman for small numbers", () => {
         expect(toRoman(9)).toBe("IX");
     })
     test("tests toRoman(19) = XIX", () => {
-        expect(toRoman(9)).toBe("XIX");
+        expect(toRoman(19)).toBe("XIX");
     })
 
 })
