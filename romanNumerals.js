@@ -5,9 +5,7 @@ function toRomanLazy(num) {
   
   romanNumeralPriorityORder.forEach((numeral) => {
     let val = Math.floor(num/romanNumeralToArabic[numeral]);
-    for (let i = 0; i < val; i++){
-      output += numeral;
-    }
+    output += numeral.repeat(val);
     num -= val * romanNumeralToArabic[numeral];
   })
   return output;
@@ -18,33 +16,33 @@ function toRoman(num) {
   const romanNumeralToArabic = {"I": 1, "V": 5, "X": 10, "L": 50, "C":100, "D": 500, "M": 1000};
   const romanNumeralPriorityORder = ["M","D","C","L","X","V","I"];
   
-  for (let i = 0; i < romanNumeralPriorityORder.length; i++){
-    romanNumeral = romanNumeralPriorityORder[i];
-    if (num - romanNumeralToArabic[romanNumeral] < 0){
-      for (let j = i+1; j < romanNumeralPriorityORder.length; j++){
-        nextRomanNumeral = romanNumeralPriorityORder[j];
-        if (num -  === romanNumeralToArabic[nextRomanNumeral]){
-          console.log(nextRomanNumeral)
-          output += nextRomanNumeral + romanNumeral;
-          num -= romanNumeralToArabic[romanNumeral] - romanNumeralToArabic[nextRomanNumeral];
+  romanNumeralPriorityORder.forEach((numeral, ind) => {
+    if (num < romanNumeralToArabic[numeral]){
+      romanNumeralPriorityORder.slice(ind+1).forEach(nextNumeral => {
+        if (num > romanNumeralToArabic[nextNumeral] && num + romanNumeralToArabic[nextNumeral] >= romanNumeralToArabic[numeral] && nextNumeral != "D" ){
+            output += nextNumeral + numeral;
+            num -= romanNumeralToArabic[numeral] - romanNumeralToArabic[nextNumeral]
         }
-      }
+      })
 
+    } 
+    else {
+      let val = Math.floor(num/romanNumeralToArabic[numeral]);
+    for (let i = 0; i < val; i++){
+      output += numeral;
     }
-     else {
-      let val = Math.floor((num/romanNumeralToArabic[romanNumeral]));
-      for (let i = 0; i < val; i++){
-        output += romanNumeral;
-      }
-      num -= val * romanNumeralToArabic[romanNumeral]
-    }
+    num -= val * romanNumeralToArabic[numeral];
+
+
   }
 
 
-
-  return output;
+ 
+})
+return output;
 }
-
-console.log(toRoman(944)); //IV
+// console.log(toRoman(4)); // IV
+// console.log(toRoman(150)); //CL
+// console.log(toRoman(944)); // 'CMXLIV'
 
 module.exports = { toRoman, toRomanLazy };
